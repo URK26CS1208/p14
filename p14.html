@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitSphere - Fitness To Do List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f0eb;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            width: 650px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #263b32;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+
+        input {
+            padding: 10px;
+            margin: 8px 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 18px;
+            background-color: #3f6b50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #263b32;
+        }
+
+        #main {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f1f7f2;
+            border-radius: 8px;
+        }
+
+        #main div {
+            background-color: #dcebe0;
+            padding: 12px;
+            margin: 8px;
+            border-left: 5px solid #3f6b50;
+            border-radius: 5px;
+        }
+
+        .delete {
+            background-color: #c0392b;
+        }
+    </style>
+
+    <script>
+        var counter = 0;
+
+        function icreate() {
+            const mydiv = document.createElement("div");
+
+            mydiv.id = "mydiv" + counter;
+            mydiv.innerText =
+                document.getElementById("mytext").value;
+
+            const main = document.getElementById("main");
+            main.appendChild(mydiv);
+
+            counter++;
+        }
+
+        function iread() {
+            const r = document.getElementById(
+                "mydiv" + document.getElementById("myread").value
+            ).innerText;
+
+            alert(r);
+        }
+
+        function iupdate() {
+            document.getElementById(
+                "mydiv" + document.getElementById("myupdate").value
+            ).innerText =
+                document.getElementById("myupdate_content").value;
+
+            alert("Workout updated successfully!");
+        }
+
+        function idelete() {
+            const d = document.getElementById("mydiv1");
+            d.remove();
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🏋️ FitSphere Fitness</h1>
+        <p>Your Daily Workout To-Do List</p>
+
+        Enter Workout:
+        <input type="text" id="mytext"
+               placeholder="Enter workout activity">
+
+        <button type="button" onclick="icreate()">
+            Add Workout
+        </button>
+
+        <br><br>
+
+        Read Workout:
+        <input type="text" id="myread"
+               placeholder="Enter item number">
+
+        <button type="button" onclick="iread()">
+            Read
+        </button>
+
+        <br><br>
+
+        Update Item:
+        <input type="text" id="myupdate"
+               placeholder="Enter item number">
+
+        Update Content:
+        <input type="text" id="myupdate_content"
+               placeholder="New workout">
+
+        <button type="button" onclick="iupdate()">
+            Update
+        </button>
+
+        <br><br>
+
+        <button type="button" class="delete"
+                onclick="idelete()">
+            Delete Item 1
+        </button>
+
+        <h3>My Workout Activities</h3>
+
+        <div id="main">
+            All workout activities will appear here.
+        </div>
+
+    </div>
+
+</body>
+</html>
